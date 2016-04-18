@@ -66,6 +66,7 @@ public class Vista_Cobro extends javax.swing.JFrame {
         total_pedido = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(350, 180));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("Ingrese el pago del cliente: ");
@@ -93,6 +94,7 @@ public class Vista_Cobro extends javax.swing.JFrame {
         jLabel3.setText("Monto a cancelar:");
 
         total_pedido.setEditable(false);
+        total_pedido.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
