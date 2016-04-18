@@ -12,10 +12,15 @@ import Modelo.Producto;
  */
 public class Venta {
     
+    private Producto producto;
     int cord1, cord2, cant;
-    int monto;
-    String fecha;
-    String detalle;
+    public int monto;
+    public String nombre;
+    
+    public Venta(Producto producto){
+        this.producto=producto;
+    }
+
    
     public void setCoordenada1(int c1){
         this.cord1 = c1;
@@ -35,14 +40,16 @@ public class Venta {
     
     Producto aux = new Producto();
     
-    public int calcular_monto(){  
+    public void calcular(int co1, int co2,int cantidad){  
        
-      
-       monto = aux.buscar_p(cord1,cord2) * cant;
-       
-       
-        return monto;
+        System.out.println("precio"+producto.getPrecio(co1, co2));
+       monto = producto.getPrecio(co1, co2) * cantidad;    
+        System.out.println("calculado "+monto);
         
+    }
+    
+    public int getMonto(){
+        return monto;
     }
     
     

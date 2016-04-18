@@ -30,13 +30,12 @@ public class Producto {
 
     
     
-    
-    public int buscar_p(int a, int b){
-        
-        precio = precios[a][b];
-        
-        
-        return precio;
+    public int getPrecio(int x, int y){
+        return precios[x][y];
     }
+    public String getNombre(int x, int y){
+        return nombres[x][y];
+    }
+    
     }
 

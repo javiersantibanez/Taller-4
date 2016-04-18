@@ -6,6 +6,7 @@
 package Vista;
 
 import Controlador.*;
+import java.awt.event.ActionListener;
 /**
  *
  * @author Javier Santibañez
@@ -16,16 +17,32 @@ public class Vista_Principal extends javax.swing.JFrame {
      * Creates new form Interfaz
      */
     
-    Controlador_Cobro datos = new Controlador_Cobro();
-    
+
+    //private Vista_Cobro cobro;
    
     public Vista_Principal() {
         initComponents();
-        
+        //this.cobro = cobro;
     }
     
-   
-
+   public int getCord1(){
+      return Integer.parseInt(cord1.getText());
+   }
+    public int getCord2(){
+      return  Integer.parseInt(cord2.getText());
+    }
+    public int getCantidad(){
+        return Integer.parseInt(cantidadp.getText());
+    }
+    public void setResultado(int cord1){
+        //cobro.setResultado(cord1);
+    }
+     public void botonCalcular(ActionListener escuchar){
+         System.out.println("boton");
+        jButton4.addActionListener(escuchar);
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -169,16 +186,9 @@ public class Vista_Principal extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
+        //datos.set_datos(coordenada1, coordenada2, cantidad);
         
         
-        int coordenada1 = Integer.parseInt(cord1.getText());
-        int coordenada2 = Integer.parseInt(cord2.getText());
-        int cantidad = Integer.parseInt(cantidadp.getText());
-        
-        datos.set_datos(coordenada1, coordenada2, cantidad);
-        
-        Vista_Cobro a = new Vista_Cobro();
-        a.setVisible(true);
         //this.setVisible(false);
     }//GEN-LAST:event_jButton4ActionPerformed
 

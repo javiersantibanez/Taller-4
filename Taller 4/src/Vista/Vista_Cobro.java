@@ -8,6 +8,7 @@ package Vista;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import Controlador.Controlador_Cobro;
+import java.awt.event.ActionListener;
 
 /**
  *
@@ -18,17 +19,34 @@ public class Vista_Cobro extends javax.swing.JFrame {
     /**
      * Creates new form Interfaz_Cobro
      */
-    Controlador_Cobro dato2 = new Controlador_Cobro();
+
     
     public Vista_Cobro() {
-        initComponents();
-        
-        int resultado = dato2.calcular();
+        initComponents();        
+    }
+    public int getPagoCliente(){
+        return Integer.parseInt(pagoCliente.getText());
+    }
+    public void setResultado(int resultado){
         String res = Integer.toString(resultado);
         total_pedido.setText(res);
     }
+    public void setResutado(int re){
+        total_pedido.setText(Integer.toString(re));
+    }
+            
+   public void botonAtras(ActionListener escuchar){
 
+        volver_menu.addActionListener(escuchar);
+    }
+   
+   public void botonIngresarPago(ActionListener escuchar){
 
+        i_pago.addActionListener(escuchar);
+    }
+   public int getTotalPedido(){
+       return Integer.parseInt(total_pedido.getText());
+   }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -48,7 +66,6 @@ public class Vista_Cobro extends javax.swing.JFrame {
         total_pedido = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setLocation(new java.awt.Point(350, 180));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("Ingrese el pago del cliente: ");
@@ -74,6 +91,8 @@ public class Vista_Cobro extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("Monto a cancelar:");
+
+        total_pedido.setEditable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -125,20 +144,14 @@ public class Vista_Cobro extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void volver_menuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volver_menuActionPerformed
-        // TODO add your handling code here:
-        Vista_Principal a= new Vista_Principal();
-        a.setVisible(true);
-        this.setVisible(false);
-        
+        // TODO add your handling code her     
        
         
     }//GEN-LAST:event_volver_menuActionPerformed
 
     private void i_pagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_pagoActionPerformed
         // TODO add your handling code here:
-        JFrame frame = new JFrame("JOptionPane showMessageDialog example");
         
-        JOptionPane.showMessageDialog(frame, "El vuelto es de " );
     }//GEN-LAST:event_i_pagoActionPerformed
 
     /**
