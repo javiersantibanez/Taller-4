@@ -18,7 +18,8 @@ public class Vista_Cobro extends javax.swing.JFrame {
     /**
      * Creates new form Interfaz_Cobro
      */
- 
+    
+    Controlador_Cobro pag = new Controlador_Cobro();
     
     public Vista_Cobro() {
         initComponents();
@@ -52,6 +53,12 @@ public class Vista_Cobro extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("Ingrese el pago del cliente: ");
+
+        pagoCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pagoClienteActionPerformed(evt);
+            }
+        });
 
         Titulo.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
         Titulo.setForeground(new java.awt.Color(51, 51, 51));
@@ -142,14 +149,25 @@ public class Vista_Cobro extends javax.swing.JFrame {
 
     private void i_pagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_pagoActionPerformed
         // TODO add your handling code here:
+        
+        int total = Integer.parseInt(total_pedido.getText());
+        int pago = Integer.parseInt(pagoCliente.getText());
+        int res= pag.set_datos2(total, pago);
+        
+        
         JFrame frame = new JFrame("JOptionPane showMessageDialog example");
         
-        JOptionPane.showMessageDialog(frame, "El vuelto es de " );
+        JOptionPane.showMessageDialog(frame, "El vuelto es de:  " + res );
+    
     }//GEN-LAST:event_i_pagoActionPerformed
 
     private void total_pedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_total_pedidoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_total_pedidoActionPerformed
+
+    private void pagoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pagoClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pagoClienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -192,7 +210,7 @@ public class Vista_Cobro extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Titulo;
-    private javax.swing.JButton i_pago;
+    public javax.swing.JButton i_pago;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField pagoCliente;

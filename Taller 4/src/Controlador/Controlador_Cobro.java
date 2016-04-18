@@ -6,6 +6,9 @@
 package Controlador;
 import Modelo.*;
 import Vista.*;
+import java.awt.event.ActionEvent;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 
 public class Controlador_Cobro {
@@ -26,7 +29,16 @@ public class Controlador_Cobro {
      vista.total_pedido.setText(res);
     }
     
+    
+    public int set_datos2(int total ,int pago){
+       return monto.calcular_vuelto(total,pago);
+    }
   
+    
+
+  
+    
+    
     
     
     

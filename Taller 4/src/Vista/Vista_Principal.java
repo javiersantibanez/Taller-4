@@ -7,6 +7,8 @@ package Vista;
 
 import Controlador.*;
 import Modelo.*;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 /**
@@ -20,7 +22,7 @@ public class Vista_Principal extends javax.swing.JFrame {
      */
     
     Controlador_Cobro datos = new Controlador_Cobro();
-    Venta x = new Venta();
+   
    
     public Vista_Principal() {
         initComponents();
@@ -86,6 +88,14 @@ public class Vista_Principal extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Ingresar código producto:");
 
+        cord1.setForeground(new java.awt.Color(102, 102, 102));
+        cord1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        cord1.setText("max: 3");
+        cord1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cord1MouseClicked(evt);
+            }
+        });
         cord1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cord1ActionPerformed(evt);
@@ -104,6 +114,20 @@ public class Vista_Principal extends javax.swing.JFrame {
         jLabel3.setText("Ingresar cantidad producto:");
 
         cantidadp.setSelectionColor(new java.awt.Color(51, 155, 255));
+
+        cord2.setForeground(new java.awt.Color(102, 102, 102));
+        cord2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        cord2.setText("max: 2");
+        cord2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cord2MouseClicked(evt);
+            }
+        });
+        cord2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cord2ActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Fila");
 
@@ -126,23 +150,27 @@ public class Vista_Principal extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(79, 79, 79)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(cantidadp, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(cord1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(39, 39, 39)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cord2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel5))
-                                .addGap(29, 29, 29)))
-                        .addGap(44, 44, 44)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel4)
+                                        .addGap(45, 45, 45)
+                                        .addComponent(jLabel5)
+                                        .addGap(9, 9, 9))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(cord1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(cord2, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(61, 61, 61))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jLabel3)
+                                .addGap(18, 18, 18)
+                                .addComponent(cantidadp, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(57, 57, 57)))
                         .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(155, 155, 155)
@@ -161,7 +189,7 @@ public class Vista_Principal extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
@@ -171,7 +199,7 @@ public class Vista_Principal extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
                             .addComponent(cantidadp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24))
@@ -182,6 +210,8 @@ public class Vista_Principal extends javax.swing.JFrame {
 
     private void cord1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cord1ActionPerformed
         // TODO add your handling code here:
+      
+        
     }//GEN-LAST:event_cord1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -193,19 +223,31 @@ public class Vista_Principal extends javax.swing.JFrame {
         
         datos.set_datos(coordenada1, coordenada2, cantidad);
         
-       /* int resultado = datos.calcular();
-        String res = Integer.toString(resultado);
-        xx.setText(res);*/
+       
         
-       /* Vista_Cobro a = new Vista_Cobro();
-        a.setVisible(true);
-        //this.setVisible(false);*/
+//        Vista_Cobro a = new Vista_Cobro();
+//        a.setVisible(true);
+//       // this.setVisible(false);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void cord2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cord2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cord2ActionPerformed
+
+    private void cord1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cord1MouseClicked
+        // TODO add your handling code here:
+        cord1.setText("");
+    }//GEN-LAST:event_cord1MouseClicked
+
+    private void cord2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cord2MouseClicked
+        // TODO add your handling code here:
+        cord2.setText("");
+    }//GEN-LAST:event_cord2MouseClicked
 
     /**
      * @param args the command line arguments

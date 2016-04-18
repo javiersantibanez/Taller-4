@@ -17,35 +17,32 @@ public class Venta {
     String fecha;
     String detalle;
    
+    Producto aux = new Producto();
+    
     public void setCoordenada1(int c1){
-        cord1 = c1;
-        
+        cord1 = c1;      
     }
     
     public void setCoordenada2(int c2){
         cord2 = c2;
-        
     }
     public void setCantidad(int c){
-        cant = c;
-        
+        cant = c;        
     }
-   
-   
-    
-    Producto aux = new Producto();
+  
     
     public int calcular_monto(){  
-       
-       
-       int pre = aux.buscar_p(cord1,cord2);
         
-       monto = pre * cant;
-       
+       monto = aux.buscar_p(cord1,cord2) * cant;
        
         return monto;
-        
     }
     
+    public int calcular_vuelto(int total, int pago){
+        
+        int vuelto = pago - total;
+        
+        return vuelto;
+    }
     
 }
