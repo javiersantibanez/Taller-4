@@ -5,11 +5,13 @@
  */
 package Controlador;
 import Modelo.*;
-import Vista.Vista_Principal;
+import Vista.*;
+
 
 public class Controlador_Cobro {
     
     Venta monto = new Venta();
+    Vista_Cobro vista = new Vista_Cobro();
     
     
     public void set_datos(int coord1, int coord2, int cant){
@@ -17,18 +19,16 @@ public class Controlador_Cobro {
      monto.setCoordenada1(coord1);
      monto.setCoordenada2(coord2);
      monto.setCantidad(cant);
-        
+     
+     vista.setVisible(true);
+     int total =monto.calcular_monto();
+     String res = Integer.toString(total);
+     vista.total_pedido.setText(res);
     }
     
-    public int calcular(){
-       
-        int total =monto.calcular_monto();
-
-       
-     return total;
-    }
+  
     
-   
+    
     
     
 }

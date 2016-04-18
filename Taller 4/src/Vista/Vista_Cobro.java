@@ -18,14 +18,14 @@ public class Vista_Cobro extends javax.swing.JFrame {
     /**
      * Creates new form Interfaz_Cobro
      */
-    Controlador_Cobro dato2 = new Controlador_Cobro();
+ 
     
     public Vista_Cobro() {
         initComponents();
         
-        int resultado = dato2.calcular();
+        /*int resultado = datos.calcular();
         String res = Integer.toString(resultado);
-        total_pedido.setText(res);
+        total_pedido.setText(res);*/
     }
 
 
@@ -74,6 +74,12 @@ public class Vista_Cobro extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("Monto a cancelar:");
+
+        total_pedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                total_pedidoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -141,6 +147,10 @@ public class Vista_Cobro extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(frame, "El vuelto es de " );
     }//GEN-LAST:event_i_pagoActionPerformed
 
+    private void total_pedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_total_pedidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_total_pedidoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -186,7 +196,7 @@ public class Vista_Cobro extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField pagoCliente;
-    private javax.swing.JTextField total_pedido;
+    public javax.swing.JTextField total_pedido;
     private javax.swing.JButton volver_menu;
     // End of variables declaration//GEN-END:variables
 }
