@@ -11,16 +11,36 @@ import Vista.Vista_Principal;
  *
  * @author Javier Santibañez
  */
-public class Taller4 {
+public class Controlador_Principal {
 
-    /**
-     * @param args the command line arguments
-     */
+    
+    
+    
+    public void set_datos(String coord, int cant){
+        
+       
+    
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     public static void main(String[] args) {
         // TODO code application logic here
         
         Vista_Principal a = new Vista_Principal();
         a.setVisible(true);
     }
-    
+  
 }
