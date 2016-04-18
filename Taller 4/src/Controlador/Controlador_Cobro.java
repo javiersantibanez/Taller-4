@@ -23,6 +23,9 @@ public class Controlador_Cobro {
      monto.setCoordenada2(coord2);
      monto.setCantidad(cant);
      
+     
+     
+     
      vista.setVisible(true);
      int total =monto.calcular_monto();
      String res = Integer.toString(total);
