@@ -5,6 +5,7 @@
  */
 package Vista;
 
+import Controlador.*;
 /**
  *
  * @author Javier Santibañez
@@ -15,19 +16,15 @@ public class Vista_Principal extends javax.swing.JFrame {
      * Creates new form Interfaz
      */
     
-    String coordenada;
-    String cantidad;
+    Controlador_Cobro datos = new Controlador_Cobro();
     
+   
     public Vista_Principal() {
         initComponents();
         
     }
     
-    public void capturar(){
-        
-        this.coordenada = codigop.getText();
-        this.cantidad = cantidadp.getText();
-    }
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -43,10 +40,11 @@ public class Vista_Principal extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        codigop = new javax.swing.JTextField();
+        cord1 = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         cantidadp = new javax.swing.JTextField();
+        cord2 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(310, 135));
@@ -83,9 +81,9 @@ public class Vista_Principal extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Ingresar código producto:");
 
-        codigop.addActionListener(new java.awt.event.ActionListener() {
+        cord1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                codigopActionPerformed(evt);
+                cord1ActionPerformed(evt);
             }
         });
 
@@ -120,10 +118,13 @@ public class Vista_Principal extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(79, 79, 79)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(layout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(codigop, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(cord1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(cord2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(81, 81, 81))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -147,7 +148,8 @@ public class Vista_Principal extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(codigop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cord1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cord2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
@@ -161,15 +163,23 @@ public class Vista_Principal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void codigopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codigopActionPerformed
+    private void cord1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cord1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_codigopActionPerformed
+    }//GEN-LAST:event_cord1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
+        
+        
+        int coordenada1 = Integer.parseInt(cord1.getText());
+        int coordenada2 = Integer.parseInt(cord2.getText());
+        int cantidad = Integer.parseInt(cantidadp.getText());
+        
+        datos.set_datos(coordenada1, coordenada2, cantidad);
+        
         Vista_Cobro a = new Vista_Cobro();
         a.setVisible(true);
-        this.setVisible(false);
+        //this.setVisible(false);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -215,7 +225,8 @@ public class Vista_Principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField cantidadp;
-    private javax.swing.JTextField codigop;
+    private javax.swing.JTextField cord1;
+    private javax.swing.JTextField cord2;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;

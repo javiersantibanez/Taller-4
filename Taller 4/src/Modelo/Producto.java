@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Modelo;
+import Modelo.Venta;
 
 /**
  *
@@ -11,9 +12,9 @@ package Modelo;
  */
 public class Producto {
     
-    String nombre;
+    
+    String nonmbre;
     int precio;
-
     
     int precios[][] = {{1000,650,700},
                        {250,1500,700},
@@ -28,5 +29,14 @@ public class Producto {
                             {"Italiano","Pollo solo","Agua mineral"}};
 
     
+    
+    
+    public int buscar_p(int a, int b){
+        
+        precio = precios[a][b];
+        
+        
+        return precio;
+    }
     }
 

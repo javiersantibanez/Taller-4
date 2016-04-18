@@ -7,6 +7,7 @@ package Vista;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import Controlador.Controlador_Cobro;
 
 /**
  *
@@ -17,10 +18,18 @@ public class Vista_Cobro extends javax.swing.JFrame {
     /**
      * Creates new form Interfaz_Cobro
      */
+    Controlador_Cobro dato2 = new Controlador_Cobro();
+    
     public Vista_Cobro() {
         initComponents();
+        
+        int resultado = dato2.calcular();
+        String res = Integer.toString(resultado);
+        total_pedido.setText(res);
     }
 
+
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -120,6 +129,9 @@ public class Vista_Cobro extends javax.swing.JFrame {
         Vista_Principal a= new Vista_Principal();
         a.setVisible(true);
         this.setVisible(false);
+        
+       
+        
     }//GEN-LAST:event_volver_menuActionPerformed
 
     private void i_pagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i_pagoActionPerformed
@@ -156,10 +168,13 @@ public class Vista_Cobro extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-
-        /* Create and display the form */
+        
+       
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                
+                
+                
                 new Vista_Cobro().setVisible(true);
             }
         });

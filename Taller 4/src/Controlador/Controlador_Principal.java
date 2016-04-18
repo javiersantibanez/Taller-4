@@ -6,23 +6,18 @@
 package Controlador;
 
 import Vista.Vista_Principal;
+import Modelo.Venta;
+import Modelo.Producto;
 
 /**
  *
  * @author Javier Santibañez
  */
 public class Controlador_Principal {
-
     
+   
     
-    
-    public void set_datos(String coord, int cant){
-        
-       
-    
-        
-    }
-    
+  
     
     
     
