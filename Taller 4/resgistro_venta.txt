@@ -1,0 +1,6 @@
+
+1000  1 Hamburgesa     Tue Apr 19 02:38:06 CLT 2016
+5000  2 Churrasco Italiano   4 Italiano     Tue Apr 19 02:52:47 CLT 2016
+4050  2 Pollo solo   1 Churrasco solo   2 Agua mineral     Tue Apr 19 03:02:33 CLT 2016
+6700  4 Churrasco Italiano   1 Agua mineral     Tue Apr 19 03:57:57 CLT 2016
+3650  1 Pollo Italiano   2 Fanta   1 Papas fritas     Tue Apr 19 03:57:57 CLT 2016

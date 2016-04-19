@@ -11,8 +11,10 @@ import Controlador.Controlador_Cobro;
 import java.awt.event.ActionListener;
 
 /**
- *
- * @author Javier Santibañez
+ * Esta clase es la interfáz donde se informa el monto a cancelar y la posterior confirmación de la venta
+ * Esta clase pertence a la capa Vista
+ * @author Javier Santibáñez,Franco Soto, José Valdivia
+ * @version version 1.0
  */
 public class Vista_Cobro extends javax.swing.JFrame {
 
@@ -20,32 +22,58 @@ public class Vista_Cobro extends javax.swing.JFrame {
      * Creates new form Interfaz_Cobro
      */
 
-    
+    /**
+     * Este es el constructor de la clase
+     */
     public Vista_Cobro() {
         initComponents();        
     }
+    /**
+     * Obtiene el pago que realiza el cliente
+     * @return El pago del cliente en números enteros
+     */
     public int getPagoCliente(){
         return Integer.parseInt(pagoCliente.getText());
     }
+    /**
+     * Este método escribe el monto total de la venta
+     * @param resultado Monto total de la venta
+     */
     public void setResultado(int resultado){
         String res = Integer.toString(resultado);
         total_pedido.setText(res);
     }
-    public void setResutado(int re){
-        total_pedido.setText(Integer.toString(re));
-    }
-            
-   public void botonAtras(ActionListener escuchar){
+    
+    /**
+     * Este método sirve para capturar el evento de volver a la clase principal
+     * @param escuchar El evento
+     */
+    public void botonAtras(ActionListener escuchar){
 
         volver_menu.addActionListener(escuchar);
     }
-   
-   public void botonIngresarPago(ActionListener escuchar){
+    /**
+     * Este método sirve para capturar el evento de "Ingresar Pago"
+     * @param escuchar El evento
+     */
+    public void botonIngresarPago(ActionListener escuchar){
 
         i_pago.addActionListener(escuchar);
     }
-   public int getTotalPedido(){
+    /**
+     * Este método captura el monto total de la venta
+     * @return Monto total de la venta en números enteros 
+     */
+    public int getTotalPedido(){
        return Integer.parseInt(total_pedido.getText());
+   }
+   
+    /**
+     * Este método limpia la caja para ingresar el pago del cliente
+     */
+   public void setPago(){
+       pagoCliente.setText("");
+               
    }
     
     /**

@@ -4,53 +4,129 @@
  * and open the template in the editor.
  */
 package Modelo;
-import Modelo.Producto;
+
+
+
 
 /**
- *
- * @author Javier Santibañez
+ * Esta clase calcula el total de la venta y sirve de enlace hacia la clase Registro y clase Producto
+ * Es parte de la capa Modelo
+ * @author Javier Santibáñez,Franco Soto, José Valdivia
+ * @version version 1.0
  */
 public class Venta {
-    
+    /**
+     * Objeto de la clase Producto
+     */
     private Producto producto;
-    int cord1, cord2, cant;
-    public int monto;
-    public String nombre;
+    /**
+     * Objeto de la clase Registro
+     */
+    private Registro reg;
+    /**
+     * Filas
+     */
+    int cord1;
+    /**
+     * Columnas
+     */
+    int cord2;
+    /**
+     * Cantidad del producto
+     */
+    int cant;
+    /**
+     * Valor del producto por cantidad
+     */
+    int monto;
+    /**
+     * Valor total de la venta
+     */
+    int montoaux;
+    /**
+     * Iterador
+     */
+    int i= 0;
+    /**
+     * Nombre del producto
+     */
+    String nombre;
+    /**
+     * Detalle de la venta
+     */
+    String detalle ="";
     
-    public Venta(Producto producto){
+    
+  /**
+   * Este constructor de la clase
+   * @param producto Es el objeto de la clase Producto
+   * @param reg Es el objeto de la clase Registro
+   */
+    
+    public Venta(Producto producto,Registro reg){
         this.producto=producto;
+        this.reg=reg;
     }
 
+
+    /**
+     * Este método realiza el calculo total de la venta
+     * @param co1 Filas
+     * @param co2 Columnas
+     * @param cantidad Cantidades del producto 
+     */
+    public void calcular(int co1[], int co2[],int cantidad[]){  
+        for(int p=0 ; p<cantidad.length ; p++){
+            if(cantidad[p] != 0){
+                monto = producto.getPrecio(co1[p], co2[p]) * cantidad[p];
+                montoaux += monto;  
+            }
+        }
+    }
+    
+    /**
+     * Este método busca los nombres de los productos de la venta, además agrega los nombres a la variable detalle
+     * @param co1 Filas
+     * @param co2 Columnas
+     * @param cantidad Cantidades del producto
+     */
+    public void bNombre(int co1[],int co2[],int cantidad[]){
+                
+        for(int p=0;p<co1.length;p++){
+          
+            if(cantidad[p] !=0){
+                nombre = producto.getNombre(co1[p], co2[p]);        
+                detalle += cantidad[p]+" " + nombre+"   "; 
+            }
+        }
+        reg.escribir(detalle, montoaux);
+    }
+    
+    /**
+     * Este método obtiene el valor total de la venta
+     * @return Monto total de la venta
+     */
+    public int  getMonto(){
    
-    public void setCoordenada1(int c1){
-        this.cord1 = c1;
+        return montoaux;
+    }
+    
+    /**
+     * Este método limpia las variables del monto para una nueva venta 
+     * @param x Valor de inicialización
+     */
+    public void setMonto(int x){
         
+        montoaux = x;
+        monto =x;
     }
     
-    public void setCoordenada2(int c2){
-        this.cord2 = c2;
-        
+    /**
+     * Este método limpia las variables del nombre del producto para una nueva venta
+     */
+    public void vaciarNombre(){
+        nombre = "";
+        detalle= "";
     }
-    public void setCantidad(int c){
-        this.cant = c;
-        
-    }
-    
-    
-    
-    Producto aux = new Producto();
-    
-    public void calcular(int co1, int co2,int cantidad){  
-       
-        System.out.println("precio"+producto.getPrecio(co1, co2));
-       monto = producto.getPrecio(co1, co2) * cantidad;    
-        System.out.println("calculado "+monto);
-        
-    }
-    
-    public int getMonto(){
-        return monto;
-    }
-    
     
 }
